@@ -1,4 +1,4 @@
-chrome.tabs.onUpdated.addListener(function (tabId, tab) {
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (tab.active && tab.url) {
         if (tab.url.includes('https://www.youtube.com/feed/subscriptions')) {
             // Exécutez votre fonction ici sur la page cible
