@@ -1,10 +1,13 @@
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    if (tab.active && tab.url) {
-        if (tab.url.includes('https://www.youtube.com/feed/subscriptions')) {
-            // Exécutez votre fonction ici sur la page cible
-            votreScript(tabId);
+    // Exécuter la suppression toutes les 30 secondes
+    setInterval(function () {
+        if (tab.active && tab.url) {
+            if (tab.url.includes('https://www.youtube.com/feed/subscriptions')) {
+                // Exécutez votre fonction ici sur la page cible
+                votreScript(tabId);
+            }
         }
-    }
+    }, 10000); // 30 secondes
 });
 
 function votreScript(tabId) {
